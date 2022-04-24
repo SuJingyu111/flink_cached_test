@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.flink.quickstart</groupId>
-  <artifactId>flink-java-project</artifactId>
-  <name>Flink Quickstart Job</name>
+  <groupId>clusterdata-analysis</groupId>
+  <artifactId>clusterdata-analysis</artifactId>
+  <name>Cluster data analysis</name>
   <version>0.1</version>
   <build>
     <pluginManagement>
@@ -82,16 +82,12 @@
                     <exclude>META-INF/*.SF</exclude>
                     <exclude>META-INF/*.DSA</exclude>
                     <exclude>META-INF/*.RSA</exclude>
-                    <exclude>META-INF/*.MF</exclude>
-                    <exclude>META-INF/LICENSE</exclude>
-                    <exclude>META-INF/DEPENDENCIES</exclude>
-                    <exclude>META-INF/NOTICE</exclude>
                   </excludes>
                 </filter>
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>AggregateState.AggregateDemo</mainClass>
+                  <mainClass>exercise3.StatefulBusyMachines</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -167,7 +163,7 @@
     <maven.compiler.source>${target.java.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <log4j.version>2.17.1</log4j.version>
-    <target.java.version>1.8</target.java.version>
+    <target.java.version>11</target.java.version>
     <flink.version>1.14.3</flink.version>
   </properties>
 </project>
