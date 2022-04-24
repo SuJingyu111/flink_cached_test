@@ -20,17 +20,17 @@ under the License.
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.apache.flink.quickstart</groupId>
-    <artifactId>flink-java-project</artifactId>
+    <groupId>clusterdata-analysis</groupId>
+    <artifactId>clusterdata-analysis</artifactId>
     <version>0.1</version>
     <packaging>jar</packaging>
 
-    <name>Flink Quickstart Job</name>
+    <name>Cluster data analysis</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <flink.version>1.14.3</flink.version>
-        <target.java.version>1.8</target.java.version>
+        <target.java.version>11</target.java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <maven.compiler.source>${target.java.version}</maven.compiler.source>
         <maven.compiler.target>${target.java.version}</maven.compiler.target>
@@ -78,6 +78,12 @@ under the License.
             <version>${flink.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-statebackend-rocksdb</artifactId>
+            <version>1.16-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Add connector dependencies here. They must be in the default scope (compile). -->
 
@@ -91,13 +97,6 @@ under the License.
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-wikiedits_2.12</artifactId>
             <version>1.14.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-statebackend-rocksdb</artifactId>
-            <version>1.16-SNAPSHOT</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- Add logging framework, to produce console output when running in the IDE. -->
@@ -167,16 +166,13 @@ under the License.
                                         <exclude>META-INF/*.SF</exclude>
                                         <exclude>META-INF/*.DSA</exclude>
                                         <exclude>META-INF/*.RSA</exclude>
-                                        <exclude>META-INF/*.MF</exclude>
-                                        <exclude>META-INF/LICENSE</exclude>
-                                        <exclude>META-INF/DEPENDENCIES</exclude>
-                                        <exclude>META-INF/NOTICE</exclude>
                                     </excludes>
                                 </filter>
                             </filters>
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>AggregateState.AggregateDemo</mainClass>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>exercise3.StatefulBusyMachines</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
