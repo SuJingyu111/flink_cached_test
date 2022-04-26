@@ -35,13 +35,13 @@ public class StatefulBusyMachines extends AppBase {
 
     public static void main(String[] args) throws Exception {
 
-        long start = System.currentTimeMillis();
+        //long start = System.currentTimeMillis();
 
         ParameterTool params = ParameterTool.fromArgs(args);
         String input = params.get("input", pathToTaskEventData);
-        final int busyThreshold = params.getInt("threshold", 15);
+        final int busyThreshold = params.getInt("threshold", 30);
 
-        final int servingSpeedFactor = 600; // events of 10 minutes are served in 1 second
+        final int servingSpeedFactor = 60000; // events of 10 minutes are served in 1 second
 
         // set up streaming execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -64,7 +64,7 @@ public class StatefulBusyMachines extends AppBase {
                     }
                 })
                 // apply sliding window
-                .window(SlidingEventTimeWindows.of(Time.minutes(15), Time.minutes(5)))
+                .window(SlidingEventTimeWindows.of(Time.minutes(30), Time.minutes(1)))
                 .apply(new TaskCounter())
                 // apply the threshold
                 .filter((Tuple3<Long, Long, Long> count) -> (count.f2 >= busyThreshold));
@@ -78,8 +78,8 @@ public class StatefulBusyMachines extends AppBase {
 
         printOrTest(busyMachinesPerWindow);
         env.execute("Busy machines every 5 minutes");
-        long end = System.currentTimeMillis();
-        System.out.println(end - start);
+        //long end = System.currentTimeMillis();
+        //System.out.println(end - start);
     }
 
     /**
