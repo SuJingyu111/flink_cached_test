@@ -7,7 +7,7 @@ Extra Demo Run Instructions
 2. Clone flink_state_cache_test.
 
 
-3. There are two tests in this repository. The first one is a job using sliding window using google cluster data, the second one is a synthetic workload of key count. Both use ValueState.
+3. There are two tests in this repository. The first one named exercise3.StatefulBusyMachines is a job using sliding window using google cluster data, the second one named ValueSate.ValueStateDemo is a synthetic workload of key count. Both use ValueState.
 
 
 4. Pick one of the demo as Flink Job, and use maven to package.
