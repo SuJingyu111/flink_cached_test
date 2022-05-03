@@ -13,7 +13,6 @@ public class ValueStateDemo {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setStateBackend(new EmbeddedRocksDBStateBackend());
         env.setParallelism(1);
-        env.getCheckpointConfig().setCheckpointStorage("file:///checkpoint-dir");
         DataStreamSource<Tuple2<Integer, Long>> dataStreamSource = env.addSource( new RandomSource());
         long time1  = System.currentTimeMillis();
         dataStreamSource
