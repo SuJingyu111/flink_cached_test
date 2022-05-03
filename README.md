@@ -1,4 +1,4 @@
-Extra Demo Run Instructions
+Final Demo Run Instructions
 
 
 1. Clone the Team 9/Flink-Simplified. Build flink from source code.
