@@ -22,8 +22,8 @@ Final Demo Run Instructions
 7. submit flink job
 
 
-9. Our default cache policy is LRU, and default cache size is 4000. If you want to change cache configuration, please check the RocksDBCache.java, which is in 
-/flink-state-backends/flink-statebackend-rocksdb/src/main/java/org.apache.flink.contrib.streaming.state/cache/. After Change settings, you should rebuild it and restart flink cluster.
+* Our default cache policy is LRU, and default cache size is 4000. If you want to change cache configuration, please check the RocksDBCache.java, which is in 
+'/flink-state-backends/flink-statebackend-rocksdb/src/main/java/org.apache.flink.contrib.streaming.state/cache/'. After Change settings, you should rebuild it and restart flink cluster.
 
 
-10. For the version using generics instead of serialization, please checkout last_try branch in Team 9/Flink-Simplified
+* For the version using generics instead of serialization, please checkout last_try branch in Team 9/Flink-Simplified
